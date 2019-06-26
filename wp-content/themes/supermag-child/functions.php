@@ -28,3 +28,4 @@ add_action( 'wp_enqueue_scripts', 'chld_thm_cfg_parent_css', 10 );
 */
 
 require_once(get_stylesheet_directory() . '/sidebar-widgets/sidebar.php');
+require_once(get_stylesheet_directory() . '/sidebar-widgets/breaker.php');
