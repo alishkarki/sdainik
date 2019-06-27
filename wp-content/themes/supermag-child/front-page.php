@@ -9,7 +9,9 @@
 get_header();
 
 dynamic_sidebar('supermag-sidebar-breaker');
-dynamic_sidebar('supermag-sidebar-full-width');
+echo '<div class = "full_width_sidebar">';
+	dynamic_sidebar('supermag-sidebar-full-width');
+echo '</div>';
 
 /**
  * supermag_action_front_page hook

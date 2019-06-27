@@ -16,16 +16,17 @@ function supermag_widget_init_child(){
         'before_title' => '<h3 class="widget-title"><span>',
         'after_title' => '</span></h3>',
     ));
+
+	register_sidebar(array(
+		'name' => __('Full Width Sidebar', 'supermag'),
+		'id'   => 'supermag-sidebar-full-width',
+		'description' => __('Displays news on full width sidebar.', 'supermag'),
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget' => '</aside>',
+		'before_title' => '<h3 class="widget-title"><span>',
+		'after_title' => '</span></h3>',
 	
-	 register_sidebar(array(
-        'name' => __('Full Width Sidebar', 'supermag'),
-        'id'   => 'supermag-sidebar-full-width',
-        'description' => __('Displays news on full width sidebar.', 'supermag'),
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h3 class="widget-title"><span>',
-        'after_title' => '</span></h3>',
-    ));
+	));
 }
 add_action('widgets_init', 'supermag_widget_init_child');
 
