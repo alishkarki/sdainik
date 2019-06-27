@@ -9,6 +9,7 @@
 get_header();
 
 dynamic_sidebar('supermag-sidebar-breaker');
+dynamic_sidebar('supermag-sidebar-full-width');
 
 /**
  * supermag_action_front_page hook
