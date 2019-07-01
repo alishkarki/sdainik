@@ -18,6 +18,12 @@ require_once supermag_file_directory('acmethemes/customizer/header-options/heade
 */
 require_once supermag_file_directory('acmethemes/customizer/header-options/header-date.php');
 
+
+/*
+* file for header contactg options
+*/
+require_once supermag_file_directory('acmethemes/customizer/header-options/header-contact.php');
+
 /*
 * file for header news options
 */
