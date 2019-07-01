@@ -81,6 +81,38 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
 				echo '</div>'; // end of home_hover_widget_news			
 				wp_reset_postdata();
 			}
+			
+			//if( $supermag_selected_cat != -1 ){
+	            $sticky = get_option( 'sticky_posts' );
+				$supermag_cat_post_args = array(
+					'posts_per_page'      => 5,
+					'no_found_rows'       => true,
+					'order' => 'ASC',
+					'post_status'         => 'publish',
+					'ignore_sticky_posts' => true,
+					'post__not_in' => $sticky
+				);
+			//}						
+			$news_query = new WP_Query($supermag_cat_post_args);
+			if ($news_query->have_posts()){
+				$count_number = 1;
+				echo '<div class="hover_side_recent_post">';
+				
+					while ($news_query->have_posts()): $news_query->the_post();
+						echo '<div class="recent_post_wrapper">';
+							echo '<div class="number_wrapper">'.'<p>'.$count_number.'</p>';
+							echo '</div>';//end of number_wrapper
+							echo '<div class="title_wrapper">';							
+								the_title('<h4 class="title-big"><a href="'.get_permalink().'">','</a></h4>');					
+							echo '</div>'; // end of title_wrapper
+						echo '</div>'; //end of recent_post_wrapper	
+						$count_number++;
+					endwhile;
+				echo '</div>'; // end of hover_side_recent_post			
+				wp_reset_postdata();
+			}
+			
+			
 			//echo $args['after_widget'];
 		}
 		
