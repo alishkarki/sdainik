@@ -20,9 +20,17 @@ require_once supermag_file_directory('acmethemes/customizer/header-options/heade
 
 
 /*
-* file for header contactg options
+* file for header contact options
 */
 require_once supermag_file_directory('acmethemes/customizer/header-options/header-contact.php');
+
+/*
+* file for header contact options
+*/
+require_once supermag_file_directory('acmethemes/customizer/header-options/header-email.php');
+
+
+
 
 /*
 * file for header news options

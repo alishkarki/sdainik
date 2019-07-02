@@ -168,43 +168,29 @@ if ( ! function_exists( 'supermag_header' ) ) :
                         supermag_date_display();
                         echo "</div>";
                     }
-                    $supermag_breaking_news_options = $supermag_customizer_all_values['supermag-breaking-news-options'];
-                    if ( 'disable' != $supermag_breaking_news_options ) {
-                        $recent_args = array(
-                            'posts_per_page' => 5,
-                            'post_status' => 'publish',
-                            'ignore_sticky_posts' => true
-                        );
-                        $recent_posts = wp_get_recent_posts($recent_args);
-                        if ( !empty( $recent_posts ) ):
-                            if ( !empty( $supermag_customizer_all_values['supermag-breaking-news-title'] ) ){
-                                $bn_title = $supermag_customizer_all_values['supermag-breaking-news-title'];
-                            }
-                            else{
-                                $bn_title = __( 'Recent posts', 'supermag' );
-                            }
-                            $ul_class = 'bn';
-                            if( 'slide' ==  $supermag_breaking_news_options ) {
-                                $ul_class = 'duper-bn';
-                            }
-                            ?>
-                            <div class="header-latest-posts bn-wrapper float-left">
-                                <div class="bn-title">
-                                    <?php echo esc_html( $bn_title ); ?>
-                                </div>
-                                <ul class="<?php echo $ul_class; ?>">
-                                    <?php foreach ($recent_posts as $recent): ?>
-                                        <li class="bn-content">
-                                            <a href="<?php echo esc_url( get_permalink($recent["ID"]) ); ?>" title="<?php echo esc_attr($recent['post_title']); ?>">
-                                                <?php echo esc_html( $recent['post_title'] ); ?>
-                                            </a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div> <!-- .header-latest-posts -->
-                        <?php
-                        endif;
-                    }
+					?>
+					
+							
+
+
+
+                    <div class="header-contact-details float-left bn-title">
+					<?php 
+						echo $supermag_customizer_all_values['supermag-contact-info'];
+					?>
+					</div>		
+
+
+
+                    <div class="header-contact-details float-left bn-title">
+					<?php 
+						echo $supermag_customizer_all_values['supermag-email-info'];
+					?>
+					</div>								
+										
+					
+					
+                  
                     ?>
                     <div class="right-header float-right">
                         <?php
