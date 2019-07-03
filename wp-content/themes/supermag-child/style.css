@@ -87,8 +87,73 @@ h4.title-big {
 */
 
 
+/*
+* hover widget section css ends
+*/
+
+.home_hover_widget_news {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
+}
 
 
+.main_hover_title_wrapper {
+    background: aliceblue;
+}
 
+.single_hover_title_wrapper h4 {
+    font-weight: 700;
+    line-height: 0.5;
+}
 
+.single_hover_title_wrapper h4 a {
+    font-weight: 700;
+    font-size: 20px;
+    /* line-height: 10px; */
+}
+
+.post_main_wrapper h4 a {
+    font-size: 33px;
+    font-weight: 700;
+}
+
+.post_main_wrapper .news-hover-section {
+    text-align: center;
+    display: none;
+}
+
+.full_width_sidebar {
+    width: 75%;
+}
+
+.post_main_wrapper p {
+    font-size: 18px;
+}
+
+.single_hover_title_wrapper {
+    background: aliceblue;
+    border-bottom: dotted 1px #000000;
+}
+
+.post_main_wrapper .news-hover-section:nth-child(1) {
+    display: block;
+}
+
+.post_main_wrapper {
+    background: aliceblue;
+    padding: 5px;
+}
+
+.post_main_wrapper .news-hover-section img {
+    width: 500px;
+    height: 290px;
+}
+
+.post_main_wrapper .news-hover-section h4 {
+    height: 120px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
 
