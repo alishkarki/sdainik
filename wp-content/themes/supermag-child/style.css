@@ -88,7 +88,7 @@ h4.title-big {
 
 
 /*
-* hover widget section css ends
+* hover widget section css starts
 */
 
 .home_hover_widget_news {
@@ -124,8 +124,10 @@ h4.title-big {
 }
 
 .full_width_sidebar {
-    width: 75%;
+    display: grid;
+    grid-template-columns: 2.021fr 1fr;
 }
+
 
 .post_main_wrapper p {
     font-size: 18px;
@@ -157,3 +159,26 @@ h4.title-big {
     margin: 0;
 }
 
+/*
+*css for recent post number sidebar
+*/
+.recent_post_wrapper {
+    display: grid;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-column-gap: 10px;
+}
+
+.number_wrapper {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: #0e0e0e;
+    background: #f0f8ff;
+    border: solid 1px #f0f8ff;
+    border-radius: 100px;
+}
+
+/*
+* hover widget section css ends 
+*/
