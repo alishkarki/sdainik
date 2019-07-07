@@ -31,3 +31,5 @@ require_once(get_stylesheet_directory() . '/sidebar-widgets/sidebar.php');
 require_once(get_stylesheet_directory() . '/sidebar-widgets/breaker.php');
 require_once(get_stylesheet_directory() . '/sidebar-widgets/hover-widget.php');
 require_once(get_stylesheet_directory() . '/sidebar-widgets/three-category-widget.php');
+require_once(get_stylesheet_directory() . '/sidebar-widgets/four-news-display-widget.php');
+require_once(get_stylesheet_directory() . '/sidebar-widgets/two-big-news-widget.php');

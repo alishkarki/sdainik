@@ -91,12 +91,6 @@ h4.title-big {
 * hover widget section css starts
 */
 
-.home_hover_widget_news {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    grid-gap: 10px;
-}
-
 
 .main_hover_title_wrapper {
     background: aliceblue;
@@ -123,11 +117,11 @@ h4.title-big {
     display: none;
 }
 
-.full_width_sidebar {
+.main_wrapper_for_hover_widget {
     display: grid;
-    grid-template-columns: 2.021fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 10px;
 }
-
 
 .post_main_wrapper p {
     font-size: 18px;
@@ -164,21 +158,101 @@ h4.title-big {
 */
 .recent_post_wrapper {
     display: grid;
-    display: grid;
     grid-template-columns: 1fr 5fr;
     grid-column-gap: 10px;
+    align-items: center;
 }
-
 .number_wrapper {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     text-align: center;
     color: #0e0e0e;
     background: #f0f8ff;
     border: solid 1px #f0f8ff;
     border-radius: 100px;
+    display: grid;
+    align-content: center;
+}
+
+.recent_post_wrapper 
+.title-big {
+    font-size: 18px;
+}
+
+.number_wrapper p {
+    margin: 0;
+    font-size: 20px;
+}
+
+.widget_title_divider {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
 }
 
 /*
 * hover widget section css ends 
+*/
+
+/*
+* three category news widget section css starts 
+*/
+
+.main_wrapper_category_widget {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+}
+
+/*
+* three category news widget section css starts 
+*/
+
+
+/*
+* four news widget section css starts 
+*/
+
+.four_news_section_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+}
+
+/*
+* four news widget section css ends
+ 
+*/
+
+/*
+* two big news widget section css ends
+ 
+*/
+
+.main_wrapper_for_two_big_and_list_widget {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-gap: 10px;
+}
+
+.main_two_news_list_wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-gap: 10px;
+}
+
+
+.news-other-section {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.two_big_post_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+/*
+* two big news widget section css ends
+ 
 */

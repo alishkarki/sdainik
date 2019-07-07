@@ -4,7 +4,7 @@
 /**
  * Custom columns of category with various options
  */
-if ( ! class_exists( 'esn_hover_widget_news' ) ) {
+if ( ! class_exists( 'esn_two_big_news_widget' ) ) {
     /**
      * Class for adding widget
      *
@@ -12,17 +12,17 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
      * @subpackage supermag_posts_col_new
      * @since 1.0.0
      */
-	class esn_hover_widget_news extends WP_Widget {
+	class esn_two_big_news_widget extends WP_Widget {
 	  /**
 	  * To create the example widget all four methods will be 
 	  * nested inside this single instance of the WP_Widget class.
 	  **/
 		public function __construct() {
 			$widget_options = array( 
-			  'classname' => 'esn_hover_widget_news',
-			  'description' => 'This widget display the news from hover widget section!',
+			  'classname' => 'esn_two_big_news_widget',
+			  'description' => 'This widget display the two big news and other smaller!',
 			);
-			parent::__construct( 'esn_hover_widget_news', 'Hover News Widget', $widget_options );
+			parent::__construct( 'esn_two_big_news_widget', 'Two Big News Widget', $widget_options );
 		}
 		
 		/* widget function displays the widget in the front end */
@@ -34,7 +34,7 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
 			if( $supermag_selected_cat != -1 ){
 	            $sticky = get_option( 'sticky_posts' );
 				$supermag_cat_post_args = array(
-					'posts_per_page'      => 5,
+					'posts_per_page'      => 7,
 					'cat'				  => $supermag_selected_cat,
 					'no_found_rows'       => true,
 					'post_status'         => 'publish',
@@ -43,48 +43,56 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
 				);
 			}						
 			$news_query = new WP_Query($supermag_cat_post_args);
-			echo '<div class="main_wrapper_for_hover_widget">';
+			echo '<div class="main_wrapper_for_two_big_and_list_widget">';
 				if ($news_query->have_posts()){
-					echo '<div class="home_hover_widget_news">';
-						echo '<div class="news-highlight"><span>'.$title.'</span></div>';
-						echo '<div class="widget_title_divider">';
-							echo '<div class="main_hover_title_wrapper">'; 	
-								while ($news_query->have_posts()): $news_query->the_post();
-									echo '<div class="single_hover_title_wrapper">';
-										echo '<div class="news-hover-section">';							
-											the_title('<h4 class="title-big"><a href="'.get_permalink().'">','</a></h4>');					
-										echo '</div>'; // end of new hover section
-									echo '</div>'; //end of single_hover_tiile_wrapper
-								endwhile;
-							echo '</div>'; // end of main_title_wrapper 
-							echo '<div class="post_main_wrapper">';
-								while ($news_query->have_posts()): $news_query->the_post();
-										if (has_post_thumbnail()) {
+					$count_number = 1;
+					echo '<div class="home_two_news_widget_wrapper">';
+						echo '<div class="news-highlight"><span>'.$title.'</span></div>';		
+						echo '<div class="main_two_news_list_wrapper">';
+							echo '<div class="main_two_news_wrapper">';	
+							while ($news_query->have_posts()): $news_query->the_post();
+								if ($count_number<=2){
+									echo '<div class="two_news_wrapper">';	
+										if (has_post_thumbnail()) { 
 											$image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
 										} else {
 											$image_url[0] = get_template_directory_uri() . '/assets/img/no-image-660-365.png';
 										}
-										echo '<div class="news-hover-section">';
-																	
+										echo '<div class="news-big-section">';									
 											the_title('<h4 class="title-big"><a href="'.get_permalink().'">','</a></h4>');					
 											echo '<div class="img-wrap">	
 													<a href="'.get_permalink().'">
 														<img src="'.$image_url[0].'"/>
 													</a>			
 											</div>';					
-											$content = supermag_words_count( get_the_excerpt() ,30);
-											echo '<div class="breaker-news-summary">
+										echo '</div>';//end of news-big-section
+										$count_number ++;	
+									echo '</div>';//end of two_news_wrapper
+									if($count_number == 3){ echo '</div><div class="other_post_main_wrapper">'; } //main_two_news_wrapper
+								}
+								else{
+										if (has_post_thumbnail()) {
+											$image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
+										} else {
+											$image_url[0] = get_template_directory_uri() . '/assets/img/no-image-660-365.png';
+										}
+										echo '<div class="news-other-section">';
+											echo '<div class="img-wrap">	
 													<a href="'.get_permalink().'">
-														<p>'.esc_html( $content ).'</p>
-													</a> 
-											</div>';
-										echo '</div>';//end of news hover section	
-								endwhile;
-							echo '</div>';// end of post_main_wrapper
-						echo '</div>';//end of widget_title_divider
-					echo '</div>'; // end of home_hover_widget_news			
+														<img src="'.$image_url[0].'"/>
+													</a>			
+											</div>';							
+											the_title('<h4 class="title-big"><a href="'.get_permalink().'">','</a></h4>');										
+										echo '</div>';//end of news_other_section
+										$count_number ++;
+								}
+							endwhile;
+									echo '</div>';// end of other_post_main_wrapper	
+						echo '</div>'; // end of main_two_news_list_wrapper 
+						
+					echo '</div>'; // end of home_two_news_widget_wrapper			
 					wp_reset_postdata();
-				}
+				} // close if
 				
 				//if( $supermag_selected_cat != -1 ){
 					$sticky = get_option( 'sticky_posts' );
@@ -99,24 +107,30 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
 				//}						
 				$news_query = new WP_Query($supermag_cat_post_args);
 				if ($news_query->have_posts()){
-					$count_number = 1;
-					echo '<div class="hover_side_recent_post">';
+					echo '<div class="two_big_side_post">';
 						echo '<div class="news-highlight"><span>'.$title1.'</span></div>';
 						while ($news_query->have_posts()): $news_query->the_post();
-							echo '<div class="recent_post_wrapper">';
-								echo '<div class="number_wrapper">'.'<p>'.$count_number.'</p>';
-								echo '</div>';//end of number_wrapper
+							if (has_post_thumbnail()) {
+								$image_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
+							} else {
+								$image_url[0] = get_template_directory_uri() . '/assets/img/no-image-660-365.png';
+							}
+							echo '<div class="two_big_post_wrapper">';
+								echo '<div class="img-wrap">	
+									<a href="'.get_permalink().'">
+										<img src="'.$image_url[0].'"/>
+									</a>			
+								</div>';	
 								echo '<div class="title_wrapper">';							
 									the_title('<h4 class="title-big"><a href="'.get_permalink().'">','</a></h4>');					
 								echo '</div>'; // end of title_wrapper
-							echo '</div>'; //end of recent_post_wrapper	
-							$count_number++;
+							echo '</div>'; //end of two_big_post_wrapper	
 						endwhile;
-					echo '</div>'; // end of hover_side_recent_post			
+					echo '</div>'; // end of two_big_side_post			
 					wp_reset_postdata();
 				}
 			
-			echo '</div>';//end of main_wrapper_for_hover_widget
+			echo '</div>';//end of main_wrapper_for_two_big_and_list_widget
 			//echo $args['after_widget'];
 		}
 		
@@ -168,10 +182,10 @@ if ( ! class_exists( 'esn_hover_widget_news' ) ) {
         }
 	
 	  
-	} // class esn_hover_widget_news ends here
+	} // class esn_two_big_news_widget ends here
 }
 
-if ( ! function_exists( 'esn_hover_widget_news' ) ) :
+if ( ! function_exists( 'esn_two_big_news_widget' ) ) :
     /**
      * Function to Register and load the widget
      *
@@ -181,8 +195,8 @@ if ( ! function_exists( 'esn_hover_widget_news' ) ) :
      * @return void
      *
      */
-    function esn_hover_widget_news() {
-        register_widget( 'esn_hover_widget_news' );
+    function esn_two_big_news_widget() {
+        register_widget( 'esn_two_big_news_widget' );
     }
 endif;
-add_action( 'widgets_init', 'esn_hover_widget_news' );
+add_action( 'widgets_init', 'esn_two_big_news_widget' );

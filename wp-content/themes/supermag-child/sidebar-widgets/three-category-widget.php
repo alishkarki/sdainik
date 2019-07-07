@@ -76,7 +76,7 @@ if ( ! class_exists( 'esn_three_category_widget_news' ) ) {
 				if ($news_query1->have_posts()){
 					$count_number = 1;
 						echo '<div class="home_category_widget_news">';
-							echo '<div class="news-category-highlight"><span>'.$title1.'</span></div>';	
+							echo '<div class="news-highlight"><span>'.$title1.'</span></div>';	
 							echo '<div class="post_main_cat_wrapper">';
 								while ($news_query1->have_posts()): $news_query1->the_post();
 									if ($count_number <= 2){
@@ -115,7 +115,7 @@ if ( ! class_exists( 'esn_three_category_widget_news' ) ) {
 				if ($news_query2->have_posts()){
 					$count_number = 1;
 						echo '<div class="home_category_widget_news">';
-							echo '<div class="news-category-highlight"><span>'.$title2.'</span></div>';	
+							echo '<div class="news-highlight"><span>'.$title2.'</span></div>';	
 							echo '<div class="post_main_cat_wrapper">';
 								while ($news_query2->have_posts()): $news_query2->the_post();
 									if ($count_number <= 2){
@@ -154,7 +154,7 @@ if ( ! class_exists( 'esn_three_category_widget_news' ) ) {
 				if ($news_query3->have_posts()){
 					$count_number = 1;
 						echo '<div class="home_category_widget_news">';
-							echo '<div class="news-category-highlight"><span>'.$title3.'</span></div>';	
+							echo '<div class="news-highlight"><span>'.$title3.'</span></div>';	
 							echo '<div class="post_main_cat_wrapper">';
 								while ($news_query3->have_posts()): $news_query3->the_post();
 									if ($count_number <= 2){
